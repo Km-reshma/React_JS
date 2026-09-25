@@ -249,3 +249,134 @@ ________________________________________________________________________________
 
 
 
+
+# JSX : JAVASCRIPT XML
+
+JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file.
+"write your jsx code inside any function based component you use short format like : div.blank then automatically with the help of emmet setting in vs code you use this "div.blank"  then convert-> 
+" <div className = "blank> </div> "
+
+same as:
+li.name -> <li className = "name">
+
+"basically React is used 'Webpack' "
+
+# Example of JSX: 
+
+function App() {
+    const name = "Rahul";
+
+    return (
+        <>
+            <h1>Hello {name}</h1>
+            <p>Welcome to React</p>
+        </>
+    );
+}
+
+Here we can use:
+HTML-like elements → <h1>, <p>, <div>
+JavaScript → {name}
+So JSX combines UI + JavaScript logic in a convenient way.
+
+
+# Compiled in Bebel: above code is compiled through the Bebel.
+#                    Babel is a JavaScript compiler/transpiler.
+#                    It main job is to convert modern JS, JSX code into JavaScript that browsers can understand.
+#                    Bebel Compiles JSX down to "React.createElement()"  calls. "
+                     
+#                    Example 1 :
+                     const element =(
+                        <h1 className = "greeting"> 
+                        Hello World!
+                        </h1>
+                     )
+
+#                    # this code is compiled through the babel like
+                       const element = React.createElement(
+                        'h1',
+                        {className: 'greeting'},
+                        'Hello World!'
+                       );
+
+                       this code is too complex thats why we write the code in jsx format which is easy to understand
+                       
+
+# Exanmple 2 : We write JSX:
+
+function App() {
+    return <h1>Hello</h1>;
+}
+The browser does not directly understand JSX.
+
+# Babel converts it into JavaScript like:
+
+React.createElement("h1", null, "Hello");
+
+Then the browser can work with it.
+
+
+
+
+
+# Webpack : 
+Webpack is a module bundler. It takes your JavaScript, JSX, CSS, images, etc. and processes them so the browser can use your application.
+
+1. Older React projects created with Create React App commonly used Webpack internally.
+React Code
+   ↓
+Webpack
+   ↓
+Browser-ready files
+
+
+2. Vite: Modern React projects commonly use Vite instead of Webpack.
+React Code
+   ↓
+Vite
+   ↓
+Browser
+Vite is generally faster and is commonly used for new React projects.
+
+
+
+# JSX FRAGMENT : 
+JSX Fragment is used to group multiple JSX elements without adding an extra HTML element like extra (<div>)
+<> </>  → Fragment
+        → Groups multiple elements
+        → Does NOT create an extra HTML tag like<div>
+
+Problem 👎--------------------------------------------------------------
+In React, a component normally needs one parent element:
+function App() {
+    return (
+        <h1>Hello</h1>
+        <p>Welcome</p>
+    );
+}
+
+❌ This gives an error because there are two elements at the same level.
+
+
+Using Fragment 👍---------------------------------------------------------
+We can use:
+
+function App() {
+    return (
+        <>
+            <h1>Hello</h1>
+            <p>Welcome</p>
+        </>
+    );
+}
+
+Here:
+<>
+   ...
+</>
+
+is a Fragment.
+It allows us to group multiple elements without creating an extra <div>.
+
+
+
