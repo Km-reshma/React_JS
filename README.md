@@ -378,5 +378,109 @@ Here:
 is a Fragment.
 It allows us to group multiple elements without creating an extra <div>.
 
+________________________________________________________________________________________________________________
+
+# How Basic Website Works
+
+# MultiPage Website (Non-Single Page Website):
+MPA means a website has many pages.
+When you click on a new page, the browser loads a new page from the server.
+
+An MPA is a traditional website where each major action/navigation loads a new HTML page from the server.
+Example: Traditional e-commerce websites, news websites, many older web application.
+
+Working:
+1. Browser sends a request to the server.
+2. Server processes the request.
+3. Server generates/gets the HTML page.
+4. Server sends the HTML, CSS, and JavaScript to the browser.
+5. Browser displays the page.
+6. You click About.
+7. Browser sends another request to the server.
+8. Server returns a new HTML page.
+9. Browser loads the new page.
+
+Example: Login → Dashboard:
+
+Login Page
+    ↓
+Submit login
+    ↓
+Server
+    ↓
+New Dashboard HTML
+    ↓
+Dashboard Page
+The server sends a new page after login.
+
+
+
+# Single-Page Application
+SPA means the website loads one main page first.
+When you click something, the page does not fully reload. JavaScript changes the content on the screen.
+
+A SPA loads one main HTML page initially and then uses JavaScript to dynamically change what the user sees.
+Popular SPA technologies include React, Angular, and Vue.
+
+Suppose you visit:
+
+Initially:
+1. Browser requests the application.
+2. Server sends the main HTML file.
+3. Browser downloads JavaScript, CSS, etc.
+4. JavaScript starts the application.
+5. User clicks Products.
+6. Instead of requesting an entirely new HTML page, JavaScript changes the displayed content.
+7. The application may request only the required data from the backend API.
+
+Login Screen
+    ↓
+JavaScript sends login request
+    ↓
+API
+    ↓
+JSON response
+    ↓
+JavaScript updates UI
+    ↓
+Dashboard appears
+The browser doesn't necessarily perform a full page reload.
+
+________________________________________________________________________________________________________________
+
+# Bootsrap:
+Bootstrap is a CSS framework that helps you make websites quickly and easily.
+It is a CSS framework (with JavaScript components too).
+Means we does not need to write too much css or js.
+It gives you ready-made styles and components, so you don't have to write all CSS from scratch.
+What Bootstrap provides: Buttons, Forms, Navbar, Cards, Tables, Grid System etc.
+
+# how to add bootsrap css in your app:
+
+Bootstrap's Docs --> Quick Start --> Go to Bootstrap css --> copy the link -> and paste it index.html(public folder) above the <tilte> tag.
+
+# how to add bootsrap js in your app:
+
+Bootstrap's Docs --> Quick Start --> Go to Bootstrap js --> copy the link -> and paste it index.html(public folder) <body> tag.
+
+@ we delete the index.css, bzc we use bootstrap.
+
+## now Create a project 1 👍
+Project name : TextUtentils
+function of this project: no. of words count, Remove extra spaces, Capitalization, Lower to Upper case
+
+So, basically we create a text-box with button.
+now we use Navbar component from Bootstrap Framwork.
+
+Create a Folder in src -> component folder -> Navbar File or component.
+convert all class -> className
+        all tab   -> tabIndex
+        all for   -> HTMLFor
+        href="#"  -> href="/"
+        and apply all closing tag.
+
+In my project We convert Navbar ->textUtentils
+contain only Home, About and remove all remining navigation link.
+
 
 
