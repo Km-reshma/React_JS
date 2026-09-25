@@ -2,6 +2,7 @@
 Self Learning and self-notes for React
 
 # React:
+
 1. React was developed by the Facebook Software Engineer 'Jordan Walke'.
 2. React is an open source front-end javascript library which is used for building UI(user interfaces) and      component based architecture.
 3. React is used to build single page application.
@@ -18,6 +19,10 @@ ReactDom.render(
     <h1>Hello</h1>
     document.getElementById('root')
 );
+
+"""" build UIs from and independent pieces.
+     like - Header, Navigation, Product-Card, Footer."""""""""""
+
 
 # Instead of we create app in two ways:
 
@@ -65,12 +70,12 @@ npx → "I want to use this tool now without permanently installing it."
 npm install -g → "Install this tool globally on my computer so I can use it anytime."
 Note: Create React App is now deprecated/maintenance mode. For new React projects, modern tools such as Vite are generally preferred.
 
-# Method 1: Using Vite build tool
+# Method 2: Using Vite build tool
 
 Step 1: Navigate to the folder where you want to create the project and open it in terminal
 
 Step 2: In the terminal of the application directory type the following command.
-        "npm create vite@latest <<Application_name>>
+        "npm create vite@latest <<Application_name>>"
 
 Step 3: It will ask you a few questions: 
         Select the React Framework and then variant as JavaScript from options 
@@ -91,6 +96,13 @@ Step 6: Start the development server, To run the application use the following c
         You'll get a URL similar to:
         http://localhost:5173/
 
+
+# simple-
+npm create vite@latest <<Application_name>>
+cd my-app
+npm install
+npm run dev
+
 ----------------------------------------------------------------------------------------------------------------
 For uderstanding 👍
 "npx create-react-app my-app " -> when we run the command in terminal then we see many instruction in terminal.
@@ -103,9 +115,137 @@ For uderstanding 👍
 5. Successfully created my-app
 6. Run several commands
 
-# npm start - start the developer server
+# npm start - start the developer server and compiled successfully (first cd my-app then npm start) , means     application is started, localhost3300
 # npm run build - Bundles the app into static files for production
 # npm test - start the test runner
-# npm run enject - Removes this tools & copies .
-----------------------------------------------------------------------------------------------------------------
+# npm run enject - Removes this tools & copies.
+
+_______________________________________________________________________________________________________________
+
+# Component : 
+React component names normally start with a capital letter.
+A component is a small, independent part of a webpage.
+A reusable building block of a React application.
+This makes the application easier to create, understand, modify, and maintain.
+
+------------------------------------------------
+|                  Header                      |
+------------------------------------------------
+| Sidebar |             Main Content           |
+|         |                                    |
+|         |       Product Card                 |
+|         |       Product Card                 |
+------------------------------------------------
+|                  Footer                      |
+------------------------------------------------
+
+Each part can be a separate React component:
+
+App
+├── Header
+├── Sidebar
+├── MainContent
+│    ├── ProductCard
+│    └── ProductCard
+└── Footer
+
+# Types of component
+1. Class based component - Today, Functional Components are commonly used.
+2. Function based component -A functional component is simply a JavaScript function that returns JSX.
+
+# Example 
+function Welcome() {
+    return <h1>Hello World!</h1>;
+}
+
+export default Welcome;
+
+# Explanation
+function Welcome() : creates a component called Welcome.
+return <h1>Hello World!</h1> : returns what should appear on the webpage.
+
+________________________________________________________________________________________________________________
+
+# folder in React app: 
+
+If you use Create React App
+When you run: " npx create-react-app my-app "
+you get a structure roughly like this:
+
+my-app/
+│
+├── node_modules/
+├── public/
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+│
+├── src/
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── reportWebVitals.js
+│   └── setupTests.js
+│
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
+
+# Main folders : There are 3 important automatically created folders:
+
+1. node_modules → Contains installed all packages and libraries, when you create a react app.
+                  It contains all the packages and libraries needed by your React project.
+                  When you run npm install, these packages are downloaded here.
+                  Don't edit this folder manually.
+                  It can be very large.
+
+2. public → Contains public/static files. but in this folder "index.html" is important to use this.
+    1. index.html: The HTML page where React is loaded.
+
+3. src → Contains the main React source code. we use only three files: 
+    1. App.js: this is a component.
+    2. index.js: this is a entry point.
+    3. App.css: (not imp) all css is written here, or we avoid or delete this while using the import "bootstap css".
+
+src/
+├── App.js -> Your main React component.
+└── index.js -> Connects your React application to the HTML page.
+
+node_modules can contain a very large number of files and folders, so we normally don't count everything inside it manually.
+
+
+# some other : where we dont use to modify
+
+1. .gitignore: 
+This file tells Git which files/folders should not be uploaded or tracked.
+For example, node_modules is usually included in .gitignore.
+.gitignore = Files that Git should ignore
+
+2. package.json:
+It contains information about your project, dependencies (packages) used by your project.
+It contains commands/scripts like npm run dev.
+package.json = Project information + packages + commands
+
+3. package-lock.json:
+It records the exact versions of the packages installed in your project.
+It helps make sure the same package versions are installed on different computers.
+package-lock.json = Exact package/version record
+
+4. README.md: Project information/instructions
+It is a documentation file.
+It explains things about the project, such as:
+What the project is
+How to install it
+How to run it
+
+________________________________________________________________________________________________________________
+
+
 
