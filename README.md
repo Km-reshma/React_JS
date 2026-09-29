@@ -485,6 +485,86 @@ In my project We convert Navbar ->textUtentils
 contain only Home, About and remove all remining navigation link.
 
 ________________________________________________________________________________________________________________
+# Default export and name export
+Before starting the props we should be know about the default export and name export.
+
+export means: “I want to make this component/function/variable available in another file.”
+Then import is used to bring it into another file
+
+First: What is Export? :
+Suppose you have a file:    Student.js
+Inside this file:           const name = "Rahul";
+
+Now you want to use name in another file.
+So, you send name outside the file. This is called export.
+The other file brings it inside. This is called import.
+
+Student.js
+   ↓
+EXPORT = sending something outside
+   ↓
+App.js
+   ↓
+IMPORT = bringing something inside
+
+There are two important types:
+1. Default Export
+2. Named Export.
+
+# Default Export:
+The simple meaning of default is: "This is the main thing from my file."
+
+Example:
+
+" const name = "Rahul";
+  export default name; "
+Here, we are making name a default export.
+
+Now, in another file:          "  import name from "./Student"; "
+That's it. name is now available in this file.
+
+Important Poin : With a default export, you can give the imported thing any name as you want.
+
+For example: export default name;
+You can import it like this: import name from "./Student";
+
+You can also write: import x from "./Student";
+
+Or: import Rahul from "./Student";
+
+All of these are allowed.
+
+Why? Because it is a default export.
+You are basically saying:
+"The main thing coming from this file, I will call it Rahul here."
+
+
+# Named Export : 
+Now suppose one file has many things:
+
+"""   const name = "Rahul";
+      const age = 20;
+      const city = "Delhi";     """
+
+And you want to export all three.
+You can write:
+
+"""    export const name = "Rahul";
+       export const age = 20;
+       export const city = "Delhi";      """
+These are called named exports.
+
+Now, in another file:
+"""     import { name, age, city } from "./Student";       """
+
+Notice the { }.
+
+{ name, age, city }
+  ↑     ↑     ↑
+exact names
+With named exports, you normally use the same name while importing.
+
+
 
 # Props and Props Type in React
 
