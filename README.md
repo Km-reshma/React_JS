@@ -467,7 +467,10 @@ Bootstrap's Docs --> Quick Start --> Go to Bootstrap js --> copy the link -> and
 
 @ we delete the index.css, bzc we use bootstrap.
 
-## now Create a project 1 👍
+
+---------------------------------------------------------------------------------------------------------------
+
+# now Create a project 1 👍
 Project name : TextUtentils
 function of this project: no. of words count, Remove extra spaces, Capitalization, Lower to Upper case
 
@@ -485,6 +488,8 @@ In my project We convert Navbar ->textUtentils
 contain only Home, About and remove all remining navigation link.
 
 ________________________________________________________________________________________________________________
+
+
 # Default export and name export
 Before starting the props we should be know about the default export and name export.
 
@@ -511,6 +516,7 @@ There are two important types:
 1. Default Export
 2. Named Export.
 
+--------------------------------------------------------------------------------------------------------------
 # Default Export:
 The simple meaning of default is: "This is the main thing from my file."
 
@@ -538,6 +544,26 @@ Why? Because it is a default export.
 You are basically saying:
 "The main thing coming from this file, I will call it Rahul here."
 
+# Example : we have created two file under my project "textutils"
+# in module2.js 
+let a = "shiva";
+let b = "Parvati";
+let c = "Rama";
+let d = "Sita";
+
+export default a;
+
+# in module1.mjs : 
+import ui from './module2.mjs'
+console.log(ui);
+
+# then run node module1.mjs and out is : "shiva"
+# export default b ; then output is "parvati" 
+only changes do in module2,mjs not modify in module1.mjs, that's why it is called default export.
+
+Bring the default exported value from module2.mjs and call it ui in this file."
+
+----------------------------------------------------------------------------------------------------------------
 
 # Named Export : 
 Now suppose one file has many things:
@@ -565,6 +591,29 @@ exact names
 With named exports, you normally use the same name while importing.
 
 
+# Example : we have created two file under my project "textutils"
+# in module2.js 
+let a = "shiva";
+let b = "Parvati";
+let c = "Rama";
+let d = "Sita";
+
+export default b;
+export {a};
+export {c};
+export {d};
+
+or we can write the above export statements in a single line as below
+# export { a, c, d } 
+
+# in module1.mjs : 
+import dz, {a,c,d} from './module2.mjs'
+console.log(dz);               //Parvati
+console.log(a);                //shiva
+console.log(c);                //Rama
+console.log(d);                //Sita
+
+________________________________________________________________________________________________________________
 
 # Props and Props Type in React
 
@@ -575,6 +624,7 @@ Think of props like a gift 🎁.
 Parent component = person giving the gift
 Child component = person receiving the gift
 Props = the gift/data
+
 
 # Simple Example:
 function Student(props) {
