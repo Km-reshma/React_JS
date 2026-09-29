@@ -489,6 +489,40 @@ contain only Home, About and remove all remining navigation link.
 
 ________________________________________________________________________________________________________________
 
+# ES7 React/Redux/GraphQL/React-Native snippet
+Native Snippets extension: this VS Code extension is used to write React/JavaScript code faster.
+Instead of typing a complete piece of code again and again, you type a short keyword, press Tab, and VS Code creates the code for you.
+
+""In React Native, instead of writing the same code again and again, you can type a short snippet keyword,      press Tab, and VS Code automatically generates the code for you. """"""""""
+
+Example 1: React component
+Without snippet, you might write:
+
+import React from 'react';
+const App = () => {
+  return (
+    <div>
+      Hello
+    </div>
+  );
+};
+export default App;
+
+With the extension, you can type: rafce and press Tab.
+It can generate something like:
+
+import React from 'react';
+const App = () => {
+  return (
+    <div>App</div>
+  );
+};
+export default App;
+
+So, rafce is just a shortcut for creating a React component.
+
+________________________________________________________________________________________________________________
+
 
 # Default export and name export
 Before starting the props we should be know about the default export and name export.
@@ -626,20 +660,48 @@ Child component = person receiving the gift
 Props = the gift/data
 
 
+Props = information/data that we pass from one component to another component.
+Think of a component as a blank paper/template.
+A blank paper by itself doesn't have anything useful on it.
+You can give it some information, like:  "Write Rahul's name on this paper."
+
+That Rahul is like a prop.
+
+
 # Simple Example:
-function Student(props) {
+Suppose we create a component:
+
+function User(props) {
   return <h1>Hello {props.name}</h1>;
 }
-function App() {
-  return <Student name="Rahul" />;
-}
+
+This component is like a blank paper. It doesn't know whose name to display.
+
+Now in another component:   <User name="Rahul" />
+
+We are giving the component: name = Rahul
+
+So the output will be: Hello Rahul
 
 Here:
-name="Rahul" → prop
-Student → child component
-props.name → receives the value "Rahul"
+User → component
+name → prop
+"Rahul" → value of the prop
+props.name → receives the value inside the component
 
-So the output is: Hello Rahul
+# Example 2 👍
+<User name="Rahul" age={22} city="Delhi"/>
+
+Then:
+function User(props) {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <p>{props.age}</p>
+      <p>{props.city}</p>
+    </div>
+  );
+}
 
 # Why do we use Props?
 Props help us reuse the same component with different data.
@@ -652,5 +714,6 @@ Same Student component, but different names.
 Props are arguments passed into React components.
 Props are passed to components via HTML attributes.
 
+________________________________________________________________________________________________________________
 
-
+# Types of Props : 
