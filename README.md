@@ -717,3 +717,58 @@ Props are passed to components via HTML attributes.
 ________________________________________________________________________________________________________________
 
 # Types of Props : 
+
+1. String 👍
+Syntax : PropTypes.string
+PropTypes = checks the type of data you are passing.
+string = text/words.
+So, PropTypes.string means: “This prop should contain text.”
+
+Example:
+<Navbar title="TextUtils" />
+Here "TextUtils" is a string. 
+
+But: <Navbar title={123} />
+Here 123 is a number, not a string ⚠️
+
+So this: 
+title: PropTypes.string
+mens -> “The title should be text.”
+aboutText: PropTypes.string
+means: “aboutText should also be text.”
+
+# .isRequired :means “this prop must be provided.”
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired
+}
+
+Example :
+<Navbar title="TextUtils" />
+Correct — title is provided and is a string.
+
+<Navbar />
+Warning — title is required but you didn't provide it.
+
+" It must be text AND it must be provided."
+
+
+# default PropType:
+defaultProps gives a prop a default value when you don't provide that prop.
+
+Example 👍:
+Navbar.defaultProps = {
+  title: 'Set Title here',
+  aboutText: 'about here'
+};
+
+
+Now if you write: <Navbar />
+React will use:
+title → Set Title here
+aboutText → about here
+
+But if you write: <Navbar title="My App" />
+then:
+title → My App
+aboutText → about here
