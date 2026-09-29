@@ -151,9 +151,11 @@ App
 
 # Types of component
 1. Class based component - Today, Functional Components are commonly used.
+
 2. Function based component -A functional component is simply a JavaScript function that returns JSX.
 
 # Example 
+import React from 'react';
 function Welcome() {
     return <h1>Hello World!</h1>;
 }
@@ -481,6 +483,44 @@ convert all class -> className
 
 In my project We convert Navbar ->textUtentils
 contain only Home, About and remove all remining navigation link.
+
+________________________________________________________________________________________________________________
+
+# Props and Props Type in React
+
+Props means Property -> Custom component.
+props are used to send data from one component to another component.
+
+Think of props like a gift 🎁.
+Parent component = person giving the gift
+Child component = person receiving the gift
+Props = the gift/data
+
+# Simple Example:
+function Student(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+function App() {
+  return <Student name="Rahul" />;
+}
+
+Here:
+name="Rahul" → prop
+Student → child component
+props.name → receives the value "Rahul"
+
+So the output is: Hello Rahul
+
+# Why do we use Props?
+Props help us reuse the same component with different data.
+
+<Student name="Rahul" />
+<Student name="Priya" />
+<Student name="Aman" />
+Same Student component, but different names.
+
+Props are arguments passed into React components.
+Props are passed to components via HTML attributes.
 
 
 
