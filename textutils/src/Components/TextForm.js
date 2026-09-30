@@ -16,6 +16,13 @@ export default function Textform(props) {
     }
 
 
+    const handleClearClick = () => {
+        //console.log("Clear was clicked" + text);
+        let newText = '';               
+        setText(newText);  //setText is used to update the value of the text variable and newText is a variable which is used to store the value of the text variable after clearing it
+    }
+
+
     const handleOnChange =(event) => {
         //console.log("On change");
         setText(event.target.value);  //event.target.value is used to get the value of the text area and setText is used to update the value of the text variable
@@ -36,6 +43,8 @@ export default function Textform(props) {
         </div>  
         <button className="btn btn-primary mx-2" onClick={handleUppercaseClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-2" onClick={handleLowercaseClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
+    
     </div>
 
     <div className ="container my-3">
