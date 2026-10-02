@@ -23,6 +23,19 @@ export default function Textform(props) {
     }
 
 
+    const handleCopy = () => {
+        //console.log("Copy was clicked");
+        var text = document.getElementById("myBox"); 
+        text.select();
+        navigator.clipboard.writeText(text.value); 
+    }
+
+    const handleExtraSpaces = () => {
+        let newText = text.split(/[ ]+/); {/*split the text by one or more spaces and store it in an array and /[ ]+/ is a regular expression */}
+        newText = newText.join(" ");  //join the array elements with a single space
+        setText(newText);  //setText is used to update the value of the text variable and newText is a variable which is used to store the value of the text variable after removing extra spaces
+    }
+
     const handleOnChange =(event) => {
         //console.log("On change");
         setText(event.target.value);  //event.target.value is used to get the value of the text area and setText is used to update the value of the text variable
@@ -44,7 +57,9 @@ export default function Textform(props) {
         <button className="btn btn-primary mx-2" onClick={handleUppercaseClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-2" onClick={handleLowercaseClick}>Convert to Lowercase</button>
         <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
-    
+        <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
+        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+
     </div>
 
     <div className ="container my-3">
