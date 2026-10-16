@@ -45,14 +45,14 @@ export default function Textform(props) {
     
     //text = "new text";  //wrong way to change the state variable
     //setText("new text");  //correct way to change the state variable 
-   
+    
     return (
     <>   
-    <div className ="container">
+    <div className ="container" style = {{color : props.mode === 'dark' ? ' white' : '#042733'}}>
         <h2>{props.heading}</h2>
         <div className="mb-3">
         {/*<label forHTML="myBox" className="form-label">Example textarea</label>*/}
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+        <textarea className="form-control" value={text} onChange={handleOnChange} style = {{backgroundColor : props.mode === 'dark' ? 'gray' : 'white', color : props.mode === 'dark' ? ' white' : '#042733'}} id="myBox" rows="8"></textarea>   {/*we use value={text} to set the value of the text area to the value of the text variable and we use onChange={handleOnChange} to call the handleOnChange function when the value of the text area changes and and in style we use {{}} first for js and second for object we use style = {{backgroundColor : {props.mode === 'light' ? 'dark' : 'light'}}} to change the background color of the text area based on the value of props.mode */}
         </div>  
         <button className="btn btn-primary mx-2" onClick={handleUppercaseClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-2" onClick={handleLowercaseClick}>Convert to Lowercase</button>
@@ -62,12 +62,12 @@ export default function Textform(props) {
 
     </div>
 
-    <div className ="container my-3">
+    <div className ="container my-3" style = {{color : props.mode === 'dark' ? ' white' : '#042733'}}>
         <h2>Your Text Summary</h2>
         <p> {text.split(" ").length} words and  {text.length} characters</p>               {/*text.split(" ").length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
         <p> {0.008 * text.split(" ").length} Minutes to read</p>                           {/*0.008 is the average time taken to read a word and text.split(" ").length is used to count the number of words in the text area */}
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text.length > 0 ? text : "Enter some text in the textbox above to preview it here."}</p>
     
     </div>   
 
