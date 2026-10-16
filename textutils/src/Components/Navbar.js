@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>   {/*we use backticks to use template literals and ${props.mode} to use the value of props.mode in the className and we use navbar-${props.mode} to change the color of the navbar based on the value of props.mode and we use bg-${props.mode} to change the background color of the navbar based on the value of props.mode */}       
       <div className="container-fluid">
 
         <a className="navbar-brand" href="/">
@@ -37,18 +37,23 @@ export default function Navbar(props) {
               </a>
             </li>
             </ul>   
-              
+            {/*  
             <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-primary" type="submit">Search</button>     {/*primary is used for blue colour i bootstrap and green is"succes" and red is "danger"*/}
-            </form>
+                <button className="btn btn-primary" type="submit">Search</button>     {/*primary is used for blue colour i bootstrap and green is"succes" and red is "danger"*            
+            </form>*/}
 
+            <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>                        {/*we use backticks to use template literals and ${props.mode} to use the value of props.mode in the className and we use text-${props.mode} to change the color of the text based on the value of props.mode */}
+                <input className="form-check-input"  onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault" />                   {/*we use onClick={props.toggleMode} to call the toggleMode function when the checkbox is clicked */}
+                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode</label>
+            </div>
           
         </div>
       </div>
     </nav>
   );
 }
+
 /*
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
