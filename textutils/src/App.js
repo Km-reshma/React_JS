@@ -25,13 +25,24 @@ function App() {
   const toggleMode = () => {                          //function to toggle between light and dark mode
     if(mode === 'light'){
       setMode ('dark');
-      document.body.style.backgroundColor = '#042733';  //to change the background color of the body when dark mode is enabled
+      document.body.style.backgroundColor = '#042733';   //to change the background color of the body when dark mode is enabled
       showAlert("Dark mode has been enabled", "success");  //to show alert message when dark mode is enabled
+      document.title = 'TextUtils - Dark Mode;'            //to change the title of the page when dark mode is enabled
+      
+      // setInterval(() => {
+      //   document.title = 'TextUtils is Amazing Mode';         use setInterval to change the title of the page after every 2 seconds
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = 'Install TextUtils now';
+      // }, 2000);
+    
     }  
+    
     if(mode === 'dark') {
       setMode ('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");  //to show alert message when light mode is enabled
+      document.title = 'TextUtils - Light Mode;'  //to change the title of the page when light mode is enabled
     }
   };
 
