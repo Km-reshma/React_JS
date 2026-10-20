@@ -69,8 +69,9 @@ export default function Textform(props) {
 
     <div className ="container my-3" style = {{color : props.mode === 'dark' ? ' white' : '#042733'}}>
         <h2>Your Text Summary</h2>
-        <p> {text.split(" ").length} words and  {text.length} characters</p>               {/*text.split(" ").length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
-        <p> {0.008 * text.split(" ").length} Minutes to read</p>                           {/*0.008 is the average time taken to read a word and text.split(" ").length is used to count the number of words in the text area */}
+        {/*<p> {text.split(" ").length} words and  {text.length} characters</p>*/}                                {/*text.split(" ").length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
+        <p>{text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters</p>      {/*"if no words exist, display 0; otherwise, split the trimmed text by whitespace and count the resulting array's length. text.trim() is used to remove the extra spaces from the text area and text.trim().split(/\s+/).length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
+        <p> {0.008 * text.split(" ").length} Minutes to read</p>                                                  {/*0.008 is the average time taken to read a word and text.split(" ").length is used to count the number of words in the text area */}
         <h3>Preview</h3>
         <p>{text.length > 0 ? text : "Enter some text in the textbox above to preview it here."}</p>
     
