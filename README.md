@@ -772,3 +772,137 @@ But if you write: <Navbar title="My App" />
 then:
 title → My App
 aboutText → about here
+
+___________________________________________________________________________________________________________
+
+# how to change the favicon of any app:
+
+1. download any image in any formar like png , jpg
+2. to create the favicon, go to "favicon-generator.org website.
+3. upload the png file and create the favicon and download.
+4. extract the folder and select favicon.ico, favicon-16x16.png, favicon-32x32.png, favicon-96x96.png and paste these at public folder.
+5. Now change or replace the orevious logo or image of that application in public folder --> index.html
+" <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon-32x32.png" /> "
+
+________________________________________________________________________________________________________
+
+# React Router 
+
+React Router is a library for handling navigation in React applications. It lets you move between pages without reloading the entire website.
+
+Example
+Suppose you're building a React app with these pages:
+
+/ — Home
+/about — About
+/contact — Contact
+
+Without React Router, managing navigation between different pages in a React app becomes harder.
+
+With React Router, you can:
+Navigate between pages.
+Show different components for different URLs.
+Create dynamic pages, like /product/10.
+Build multi-page experiences without full page reloads.
+
+" React Router tells React which component to show for a particular URL. "
+" Important: React Router is for client-side navigation. Your application can change views without requesting an entirely new HTML page for every navigation. "
+
+# to install the react router:  " npm install react-router-dom "
+  |_____ This is an external package.
+
+# to check the whther react version and  react-dom version is similar like v7 or  "react-dom@19.2.8 deduped react@19.2.8 "
+
+# to import react-router in App.js:
+import { 
+    BrowserRouter, 
+    Routes, 
+    Route, 
+    Link 
+    } from 'react-router-dom';
+
+where,In React Router DOM v7, these four components are used for routing in a React application.
+
+1. BrowserRouter: Enables routing in your React application.
+It keeps track of the browser's URL and allows navigation between different pages.
+Routes are defined inside the BrowserRouter
+Wrap Your App with BrowserRouter
+Your application must be wrapped with the BrowserRouter component to enable routing:
+
+Example 👍
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* Your app content */}
+    </BrowserRouter>
+  );
+}
+
+
+2. Routes: Groups multiple Route components and renders the route that matches the current URL.
+Example:
+<Routes>
+  {/* Define routes here */}
+</Routes>
+
+3. Route: Defines which component should be displayed for a particular URL path.
+Example:
+<Route path="/" element={<Textform />} />
+<Route path="/about" element={<About />} />
+
+- path="/" — Displays the Textform component on the home page.
+- path="/about" — Displays the About component on the About page.
+- element — Specifies which component to render.
+Note: The exact prop is not needed in React Router DOM v7.
+
+4. Linl: Navigates from one route to another without reloading the entire page.
+You must first import the link, where you want to use the Link at component. Like Navbar.js
+" import { Link } from 'react-router-dom'; "   
+ 
+Example:
+<Link to="/">Home</Link>
+<Link to="/about">About</Link>
+
+- to="/" — Navigates to the home page.
+- to="/about" — Navigates to the About page.
+
+Example : 
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+
+function Contact() {
+  return <h1>Contact Page</h1>;
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* Navigation */}
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link> |{" "}
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+
+
