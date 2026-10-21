@@ -1,9 +1,14 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import Alert from './Components/Alert';
-//import About from './Components/About';
+import About from './Components/About';
 import Textform from './Components/TextForm';
 import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');      // to check  Whether dark mode is enabled or not
@@ -48,15 +53,20 @@ function App() {
 
   return(
     <>
-      {/*<Navbar title="TextUtils" aboutText="About Textutils" />
+      {/* <Navbar title="TextUtils" aboutText="About Textutils" />
       </Navbar> */}
-      <Navbar title="TextUtils" mode = {mode} toggleMode={toggleMode} />
+      <Router> 
+      <Navbar title="TextUtils" aboutText = "About" mode = {mode} toggleMode={toggleMode} />
       <Alert alert = {alert} />                {/*we use alert = {alert} to pass the value of the alert variable(which is written in const [alert]) to the Alert component and we use alert.typ and alert.msg to get the value of the typ and msg properties of the alert object in the Alert component */}
       <div className = "container my-3">                                       {/*my-3 is a bootstrap class which gives margin to the container from top and bottom */}
-      <Textform showAlert = {showAlert} heading ="Enter the text to analyze below " mode = {mode}/>
-      {/*<About />*/}                       {/*we put textform component in div container so that it will be in center of the page and not on the left side of the page and container is a bootsrap class */}
-      </div>
-              
+        <Routes>
+          <Route path="/about" element={<About />} />   {/*we use element={<About />} to render the About component when the path is /about and we use <About /> to render the About component */}
+          <Route path="/" element = {<Textform showAlert = {showAlert} heading ="Enter the text to analyze below " mode = {mode}/>} /> 
+        </Routes>
+      </div>    
+      </Router>  
+      {/*<About />*/}                      {/*we put textform component in div container so that it will be in center of the page and not on the left side of the page and container is a bootsrap class */}
+               
     </>
   );
 }
