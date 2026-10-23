@@ -860,7 +860,7 @@ Note: The exact prop is not needed in React Router DOM v7.
 4. Linl: Navigates from one route to another without reloading the entire page.
 You must first import the link, where you want to use the Link at component. Like Navbar.js
 " import { Link } from 'react-router-dom'; "   
- 
+
 Example:
 <Link to="/">Home</Link>
 <Link to="/about">About</Link>
@@ -904,5 +904,84 @@ function App() {
   );
 }
 
+______________________________________________________________________________________________________________
+
+# Free Building + Hosting React App For free on Github Pages
+
+Remove all router concept when you host your react app on github pages.
+visit this site " https://create-react-app.dev/docs/deployment/#github-pages "
+where all details are mention how to host your react app on github pages.
+
+1. Step 1: Add homepage to package.json 👍
+This step below is important!
+If you skip it, your app will not deploy correctly.
+
+Open your package.json and add a homepage field for your project:
+"   homepage": "https://myusername.github.io/my-app        ",
+
+2. Step 2: Install gh-pages and add deploy to scripts in package.json
+Now, whenever you run npm run build, you will see a cheat sheet with instructions on how to deploy to GitHub Pages.
+To publish it at https://myusername.github.io/my-app, run:  "   npm install --save gh-pages   "
+
+3. Step 3: Add the following scripts in your package.json:
+
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+
+The predeploy script will run automatically before deploy is run.
+
+4. Step 4: Run command " npm run build  "
+
+5. Step 5: Deploy the site by running npm run deploy
+Then run:   "    npm run deploy     "
+
+6. Step 6: For a project page, ensure your project’s settings use gh-pages
+Finally, make sure GitHub Pages option in your GitHub project settings is set to use the gh-pages branch:
 
 
+# build use 👍
+In npm run build, the word build tells npm to execute the build script defined in your package.json file.
+What is the purpose of build?
+When you develop a React application, your code contains JSX, React components, CSS, and other files. These files need to be prepared for production before deployment.
+
+# "npm run build "
+npm run — tells npm to execute a script.
+build — the name of the script you want to execute.
+react-scripts build — the actual command that builds your React application
+does the following:
+1. Compiles your code — processes JSX and JavaScript into browser-ready files.
+2. Optimizes your application — minifies JavaScript and CSS to reduce file sizes.
+3. Creates a build folder — contains the optimized files needed to run your website in production
+
+ _________________________
+|Your React source code   |
+|Components, App.js, CSS  |
+|_________________________|
+             |
+ ________________________________
+|npm run build                   |
+|Compiles and optimizes the app  |
+|________________________________|
+              |
+ _________________________________
+|build/ folder                    |
+|Production-ready website files   |
+|_________________________________|
+               |
+ _____________________________________
+|npm run deploy                      |
+|Publishes the files to GitHub Pages |
+|____________________________________|
+
+______________________________________________________________________________________________________________
+
+# hostion react app without using github pages
+
+1. step 1 : undo all routing concepts, like to do link and to -> a and href.
+2. step 2 : remove "homepage": "https://Km-reshma.github.io/React_JS", from package.json.
+3. step 3 : uninstall thr github pages use command " npm uninstall gh-pages"
+4. step 4 : run command npm run start
+5. step 5 : run command npm run build
