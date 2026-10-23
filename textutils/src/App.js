@@ -1,14 +1,14 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import Alert from './Components/Alert';
-// import About from './Components/About';
+import About from './Components/About';
 import Textform from './Components/TextForm';
 import { useState } from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');      // to check  Whether dark mode is enabled or not
@@ -53,25 +53,25 @@ function App() {
 
   return(
     <>
-      {/* <Navbar title="TextUtils" aboutText="About Textutils" />
-      </Navbar> */}
+      {/* <Navbar title="TextUtils" aboutText="About Textutils" />*/}
+      {/* <Navbar/>  */}
 
-      {/* <Router>  */}
-      <Navbar title="TextUtils"  mode = {mode} toggleMode={toggleMode} />
+      <Router> 
+      <Navbar title="TextUtils"  aboutText="About" mode = {mode} toggleMode={toggleMode} />
       <Alert alert = {alert} />                {/*we use alert = {alert} to pass the value of the alert variable(which is written in const [alert]) to the Alert component and we use alert.typ and alert.msg to get the value of the typ and msg properties of the alert object in the Alert component */}
       <div className = "container my-3">                                       {/*my-3 is a bootstrap class which gives margin to the container from top and bottom */} 
-        {/* <Routes>
-          <Route path="/about" element={<About />} />   {/*we use element={<About />} to render the About component when the path is /about and we use <About /> to render the About component */}
-          {/* <Route path="/" element = { */}
-          <Textform showAlert = {showAlert} heading ="Enter the text to analyze below " mode = {mode}/>
-        {/* </Routes> */} 
-      </div>    
-      {/* </Router>   */}
+        <Routes>
+          <Route path="/about" element={<About mode = {mode}/>} />   {/*we use element={<About />} to render the About component when the path is /about and we use <About /> to render the About component */}
+          <Route path="/" element = {
+          <Textform showAlert = {showAlert} heading ="Enter the text to analyze below " mode = {mode}/>} />  {/*we use element={<Textform />} to render the Textform component when the path is / and we use <Textform /> to render the Textform component and we use showAlert = {showAlert} to pass the value of the showAlert function(which is written in const showAlert) to the Textform component and we use heading ="Enter the text to analyze below " to pass the value of the heading variable(which is written in const heading) to the Textform component and we use mode = {mode} to pass the value of the mode variable(which is written in const [mode]) to the Textform component */}
+        </Routes> 
+      </div>
+      </Router>
       {/* <About />                      we put textform component in div container so that it will be in center of the page and not on the left side of the page and container is a bootsrap class */}
-               
-    </>
+              
+  </>
   );
-}
-
+}    
+     
 export default App;
 
