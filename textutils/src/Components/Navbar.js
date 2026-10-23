@@ -1,18 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>   {/*we use backticks to use template literals and ${props.mode} to use the value of props.mode in the className and we use navbar-${props.mode} to change the color of the navbar based on the value of props.mode and we use bg-${props.mode} to change the background color of the navbar based on the value of props.mode */}       
       <div className="container-fluid">
 
-        <a className="navbar-brand" href="#"> 
+        {/* <a className="navbar-brand" href="#"> 
           {props.title}
-        </a>
-        {/* <Link className="navbar-brand" to="/">          link to is used to navigate to the home page when the brand name is clicked and we use Link instead of a tag because we are using react-router-dom and we use to="/" to navigate to the home page
+        </a> */}
+        <Link className="navbar-brand" to="/">          {/*link to is used to navigate to the home page when the brand name is clicked and we use Link instead of a tag because we are using react-router-dom and we use to="/" to navigate to the home page*/}
           {props.title}
-        </Link> */}
+        </Link>
 
 
         <button
@@ -31,21 +31,21 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li className="nav-item">
-              <a className="nav-link active" href="#">
+              {/* <a className="nav-link active" href="#">
                  Home
-              </a>  
-              {/* <Link className="nav-link active" to="/"> 
+              </a>   */}
+              <Link className="nav-link active" to="/"> 
                 Home
-              </Link>*/}
+              </Link>
             </li>
 
             <li className="nav-item">
-              {/* <Link className="nav-link" to="/about"> 
+              <Link className="nav-link" to="/about"> 
                   {props.aboutText}
-                </Link>*/}
-              <a className="nav-link active" href="/about">
+                </Link>
+              {/* <a className="nav-link active" href="/about">
                 {props.aboutText}
-              </a>
+              </a> */}
             </li>
             </ul>   
             {/*  
