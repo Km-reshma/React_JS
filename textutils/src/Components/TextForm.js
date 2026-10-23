@@ -59,11 +59,11 @@ export default function Textform(props) {
         {/*<label forHTML="myBox" className="form-label">Example textarea</label>*/}
         <textarea className="form-control" value={text} onChange={handleOnChange} style = {{backgroundColor : props.mode === 'dark' ? 'gray' : 'white', color : props.mode === 'dark' ? ' white' : '#042733'}} id="myBox" rows="8"></textarea>   {/*we use value={text} to set the value of the text area to the value of the text variable and we use onChange={handleOnChange} to call the handleOnChange function when the value of the text area changes and and in style we use {{}} first for js and second for object we use style = {{backgroundColor : {props.mode === 'light' ? 'dark' : 'light'}}} to change the background color of the text area based on the value of props.mode */}
         </div>  
-        <button className="btn btn-primary mx-2" onClick={handleUppercaseClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLowercaseClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUppercaseClick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLowercaseClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
 
     </div>
 
