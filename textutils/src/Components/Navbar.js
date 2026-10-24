@@ -53,11 +53,19 @@ export default function Navbar(props) {
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-primary" type="submit">Search</button>     {/*primary is used for blue colour i bootstrap and green is"succes" and red is "danger"*            
             </form>*/}
-
-            <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>                        {/*we use backticks to use template literals and ${props.mode} to use the value of props.mode in the className and we use text-${props.mode} to change the color of the text based on the value of props.mode */}
-                <input className="form-check-input"  onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault" />                   {/*we use onClick={props.toggleMode} to call the toggleMode function when the checkbox is clicked */}
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode</label>
+            <div className = 'd-flex'>
+              <div className = 'bg-primary rounded mx-3'  onClick = { () => {props.toggleMode('primary')} } style = {{height: '30px', width: '30px', cursor: 'pointer'}}> </div>       {/*this is used for create custom color pallete */}
+              <div className = 'bg-success rounded mx-3'  onClick = { () => {props.toggleMode('success')} } style = {{height: '30px', width: '30px', cursor: 'pointer'}}> </div>
+              <div className = 'bg-danger rounded mx-3'  onClick = { () => {props.toggleMode('danger')} } style = {{height: '30px', width: '30px', cursor: 'pointer'}}> </div>
+              <div className = 'bg-warning rounded mx-3'  onClick = { () => {props.toggleMode('warning')} } style = {{height: '30px', width: '30px', cursor: 'pointer'}}> </div>
+              <div className = 'bg-light rounded mx-3'  onClick = { () => {props.toggleMode('light')} } style = {{height: '30px', width: '30px', cursor: 'pointer'}}> </div>
+              <div className = 'bg-dark rounded mx-3'  onClick = { () => {props.toggleMode('dark')} } style = {{height: '30px', width: '30px', cursor: 'pointer'}}> </div>
             </div>
+
+            {/* <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>                        {/*we use backticks to use template literals and ${props.mode} to use the value of props.mode in the className and we use text-${props.mode} to change the color of the text based on the value of props.mode */}
+                {/* <input className="form-check-input"  onClick={ () => {props.toggleMode(null)} } type="checkbox" id="flexSwitchCheckDefault" />                   we use onClick={props.toggleMode} to call the toggleMode function when the checkbox is clicked */}
+                {/* <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle DarkMode</label> */}
+            {/* </div>  */}
           
         </div>
       </div>
