@@ -31,6 +31,7 @@ export default function Textform(props) {
         var text = document.getElementById("myBox"); 
         text.select();
         navigator.clipboard.writeText(text.value); 
+        document.getSelection().removeAllRanges();
         props.showAlert("Copied to clipboard!", "success");  //to show alert message when text is copied to clipboard
     }
 
@@ -54,26 +55,28 @@ export default function Textform(props) {
     return (
     <>   
     <div className ="container" style = {{color : props.mode === 'dark' ? ' white' : '#042733'}}>
-        <h2>{props.heading}</h2>
+        <h2 classNam = 'mb-4'>{props.heading}</h2>
         <div className="mb-3">
         {/*<label forHTML="myBox" className="form-label">Example textarea</label>*/}
-        <textarea className="form-control" value={text} onChange={handleOnChange} style = {{backgroundColor : props.mode === 'dark' ? 'gray' : 'white', color : props.mode === 'dark' ? ' white' : '#042733'}} id="myBox" rows="8"></textarea>   {/*we use value={text} to set the value of the text area to the value of the text variable and we use onChange={handleOnChange} to call the handleOnChange function when the value of the text area changes and and in style we use {{}} first for js and second for object we use style = {{backgroundColor : {props.mode === 'light' ? 'dark' : 'light'}}} to change the background color of the text area based on the value of props.mode */}
-        </div>  
-        <button className="btn btn-primary mx-1 my-1" onClick={handleUppercaseClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleLowercaseClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <textarea className="form-control" value={text} onChange={handleOnChange} style = {{backgroundColor : props.mode === 'dark' ? '#134663' : 'white', color : props.mode === 'dark' ? ' white' : '#042743'}} id="myBox" rows="8"></textarea>   {/*we use value={text} to set the value of the text area to the value of the text variable and we use onChange={handleOnChange} to call the handleOnChange function when the value of the text area changes and and in style we use {{}} first for js and second for object we use style = {{backgroundColor : {props.mode === 'light' ? 'dark' : 'light'}}} to change the background color of the text area based on the value of props.mode */}
+        </div> 
+        {/* disabled= {text.length===0} means when no text at the textarea then button cannot not clickable means disable*/} 
+        <button disabled= {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUppercaseClick}>Convert to Uppercase</button>
+        <button disabled= {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowercaseClick}>Convert to Lowercase</button>
+        <button disabled= {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
+        <button disabled= {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+        <button disabled= {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
 
     </div>
 
     <div className ="container my-3" style = {{color : props.mode === 'dark' ? ' white' : '#042733'}}>
         <h2>Your Text Summary</h2>
         {/*<p> {text.split(" ").length} words and  {text.length} characters</p>*/}                                {/*text.split(" ").length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
-        <p>{text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters</p>      {/*"if no words exist, display 0; otherwise, split the trimmed text by whitespace and count the resulting array's length. text.trim() is used to remove the extra spaces from the text area and text.trim().split(/\s+/).length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
-        <p> {0.008 * text.split(" ").length} Minutes to read</p>                                                  {/*0.008 is the average time taken to read a word and text.split(" ").length is used to count the number of words in the text area */}
+        {/* <p>{text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters</p>*/}      {/*"if no words exist, display 0; otherwise, split the trimmed text by whitespace and count the resulting array's length. text.trim() is used to remove the extra spaces from the text area and text.trim().split(/\s+/).length is used to count the number of words in the text area and text.length is used to count the number of characters in the text area */}
+        <p>{text.split(" ").filter((element) => {return element.length !==0}).length} words and {text.length} characters</p>
+        <p> {0.008 * text.split(" ").filter((element) => {return element.length !==0}).length} Minutes to read</p>                                                  {/*0.008 is the average time taken to read a word and text.split(" ").length is used to count the number of words in the text area */}
         <h3>Preview</h3>
-        <p>{text.length > 0 ? text : "Enter some text in the textbox above to preview it here."}</p>
+        <p>{text.length > 0 ? text : "Nothing to Preview!."}</p>
     
     </div>   
 
