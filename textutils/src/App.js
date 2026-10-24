@@ -27,12 +27,12 @@ function App() {
 
   }
 
-  const toggleMode = () => {                          //function to toggle between light and dark mode
+  /*const toggleMode = () => {                          //function to toggle between light and dark mode
     if(mode === 'light'){
       setMode ('dark');
       document.body.style.backgroundColor = '#042733';   //to change the background color of the body when dark mode is enabled
       showAlert("Dark mode has been enabled", "success");  //to show alert message when dark mode is enabled
-      document.title = 'TextUtils - Dark Mode;'            //to change the title of the page when dark mode is enabled
+      // document.title = 'TextUtils - Dark Mode;'            //to change the title of the page when dark mode is enabled
       
       // setInterval(() => {
       //   document.title = 'TextUtils is Amazing Mode';         use setInterval to change the title of the page after every 2 seconds
@@ -47,9 +47,38 @@ function App() {
       setMode ('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");  //to show alert message when light mode is enabled
-      document.title = 'TextUtils - Light Mode;'  //to change the title of the page when light mode is enabled
+      // document.title = 'TextUtils - Light Mode;'  //to change the title of the page when light mode is enabled
     }
   };
+  */
+
+  const removeBodyClass = () => {
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-success')
+    
+  }
+
+  const toggleMode = (cls) => {                         //function to toggle between light and dark mode
+  removeBodyClass();
+  console.log(cls)
+  document.body.classList.add('bg-'+cls)                   // document.body.class.List.add() is used for add the background with class variablable like cls
+  if(mode === 'light'){
+      setMode ('dark');
+      document.body.style.backgroundColor = '#042733';   //to change the background color of the body when dark mode is enabled
+      showAlert("Dark mode has been enabled", "success");  //to show alert message when dark mode is enabled
+    
+    }  
+    
+    if(mode === 'dark') {
+      setMode ('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light mode has been enabled", "success");  //to show alert message when light mode is enabled
+      
+    }
+  };  
 
   return(
     <>
@@ -63,7 +92,7 @@ function App() {
         <Routes>
           <Route path="/about" element={<About mode = {mode}/>} />   {/*we use element={<About />} to render the About component when the path is /about and we use <About /> to render the About component */}
           <Route path="/" element = {
-          <Textform showAlert = {showAlert} heading ="Enter the text to analyze below " mode = {mode}/>} />  {/*we use element={<Textform />} to render the Textform component when the path is / and we use <Textform /> to render the Textform component and we use showAlert = {showAlert} to pass the value of the showAlert function(which is written in const showAlert) to the Textform component and we use heading ="Enter the text to analyze below " to pass the value of the heading variable(which is written in const heading) to the Textform component and we use mode = {mode} to pass the value of the mode variable(which is written in const [mode]) to the Textform component */}
+          <Textform showAlert = {showAlert} heading ="TextUtils - Word Counter, Character Counter, Remove Extra Spaces  " mode = {mode}/>} />  {/*we use element={<Textform />} to render the Textform component when the path is / and we use <Textform /> to render the Textform component and we use showAlert = {showAlert} to pass the value of the showAlert function(which is written in const showAlert) to the Textform component and we use heading ="Enter the text to analyze below " to pass the value of the heading variable(which is written in const heading) to the Textform component and we use mode = {mode} to pass the value of the mode variable(which is written in const [mode]) to the Textform component */}
         </Routes> 
       </div>
       </Router>
